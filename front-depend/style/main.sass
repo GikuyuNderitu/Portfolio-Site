@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|Audiowide|Exo+2|Kumar+One|Lobster|Noto+Sans|Press+Start+2P|Righteous|Varela+Round')
+
+// vars
+$asap: 'Asap'
+$exo: 'Exo 2'
+$kumar: 'Kumar One'
+$varela: 'Varela Round'
+$noto: 'Noto Sans'
+$audio: 'Audiowide'
+$lobster: 'Lobster'
+$p2: 'Press Start 2P'
+
+// Colors
+$primary: #932010
+$blue: #06d
+$yellow: #ca4
+
+*
+	border: 0
+	padding: 0
+	margin: 0
+
+html
+	font-size: 1rem
+	font-family: sans-serif
+
+.wrapper
+	display: flex
+	width: 100vw
+	flex-direction: column
+	align-items: center
+
+.link
+	background: $blue
+	padding: 10px 20px
+	color: #ddd
+	font-size: 1.3em
+	text-decoration: none
+	border: 2px solid #333
+	border-radius: 7px
+
+	&:hover
+		color: white
+		text-decoration: underline
+
+
+header
+	height: 50px
+	padding: 20px
+	display: flex
+	justify-content: center
+	align-items: center
+	border-bottom: 2px solid $primary
+	box-shadow: 0 2px 7px #aaa
+	transition: box-shadow 200ms ease
+
+	&:hover
+		box-shadow: 0 4px 7px #999
+
+
+
+.fa-bars
+	font-size: 3em
+	color: white
+
+	&:hover
+		cursor: pointer
+
+.pointer:hover
+	cursor: pointer
+
+.logo
+	color: $primary
+
+.family-noto
+	font-family: $noto
+
+.family-lobster
+	font-family: $lobster
+
+.family-press-start
+	font-family: $p2
+
+.family-varela
+	font-family: $varela
+
+.family-asap
+	font-family: $asap
+
+.family-audio
+	font-family: $audio
+
+.family-exo
+	font-family: $exo
+
+.family-kumar
+	font-family: $kumar
+
+.padding-lr-15
+	padding: 20px 15px
+
+
+
+.increase-font
+	font-size: 2em
+
+main
+	display: flex
+	margin-top: 20px
+	justify-content: space-between
+
+aside
+	border-right: 2px solid #444
+	margin-right: 20px
+
+	@media screen and (max-width: 600px)
+		display: none
+
+.flex-row
+	display: flex
+	flex-direction: row
+
+.flex-col
+	display: flex
+	flex-direction: column
+
+.section-title
+	font-size: 2.25em
+
+figure
+	display: flex
+	justify-content: space-around
+
+	& > figcaption
+		width: 50%
+
+#hi
+	font-size: 5em
+	transform: rotate(-30deg)
+
+.figure-placeholder
+	font-size: 5em
+
+.work-section > .section-title
+	align-self: flex-end
+	margin-right: 30px
+
+.social-media-icons
+	font-size: 2em
+	justify-content: space-around
+
+.contact-me-section
+	align-items: center
+
+#contact-form
+	margin-top: 20px
+	display: flex
+	flex-direction: column
+	width: 60%
+
+	& > label
+		justify-content: space-between
+		margin: 10px 0
+
+.input-field
+	width: 200px
+	margin-left: 20px
+	padding: 5px 7px
+	text-align: center
+	outline: 0
+	border: 0
+	border-bottom: 2px solid $primary
+	transition: border-bottom 200ms ease
+
+	&:hover
+		border-bottom: 2px solid lighten($primary, 10%)
+
+.submit-button
+	background: $primary
+	color: #ddd
+	padding: 7px 18px
+	border-radius: 4px
+	border: 0
