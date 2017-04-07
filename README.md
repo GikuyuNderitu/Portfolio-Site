@@ -1,5 +1,5 @@
 # AtypicalDev Portfolio Project
-##Intro
+## Intro
 This repository is the home for my first crack at a portfolio site!
 
 ### What Not to Expect
