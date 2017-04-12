@@ -3,36 +3,46 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" href="materialize/dist/css/materialize.min.css">
+		<link rel="stylesheet" href="angular-material/angular-material.min.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/main.css">
-		<script src="angular/angular.min.js" charset="utf-8"></script>
-		<script src="angular-route/angular-route.min.js" charset="utf-8"></script>
-		<script src="assets/js/app.js" charset="utf-8"></script>
-		<script src="assets/js/factories/portfolioFactory.js" charset="utf-8"></script>
-		<script src="assets/js/controllers/portfoliosController.js" charset="utf-8"></script>
+		<script src="angular/angular.js" charset="utf-8"></script>
+		<script src="angular-route/angular-route.js" charset="utf-8"></script>
+		<script src="angular-sanitize/angular-sanitize.js" charset="utf-8"></script>
+		<script src="angular-messages/angular-messages.js" charset="utf-8"></script>
+		<script src="angular-animate/angular-animate.js" charset="utf-8"></script>
+		<script src="angular-aria/angular-aria.js" charset="utf-8"></script>
+		<script src="angular-material/angular-material.js" charset="utf-8"></script>
 	</head>
-	<body>
-		<header ng-include="'partials/header.html'" class=""></header>
+	<body md-disable-scroll-target>
+		<header ng-include="'partials/header.html'" ng-controller="portfoliosController" class="padding-lr-15"></header>
+		<md-sidenav layout="column" class="md-sidenav-left" md-component-id="side-navigator">
+			<md-toolbar class="md-theme-light">
+				<h1 class="md-toolbar-tools">My Menu</h1>
+			</md-toolbar>
+			<div class="nav-links">
+				<p class="nav-item"><a class="md-button md-ink-ripple" href="#welcome">Welcome</a></p>
+				<p class="nav-item"><a class="md-button md-ink-ripple" href="#my-work">My Work</a></p>
+				<p class="nav-item"><a class="md-button md-ink-ripple" href="#about-me">About Me</a></p>
+				<p class="nav-item"><a class="md-button md-ink-ripple" href="#my-process">My Process</a></p>
+				<p class="nav-item"><a class="md-button md-ink-ripple" href="#contact-me">Contact Me</a></p>
+			</div>
+		</md-sidenav>
 
-		<main class="row" ng-controller="portfoliosController">
-			<aside class="fixed family-asap col s0 m3">
+		<main layout="row" ng-controller="portfoliosController">
+			<aside flex="20" class="family-asap">
 				<ul class="navbar">
-					<li class="active nav-item">Welcome</li>
-					<li class="nav-item">My Work</li>
-					<li class="nav-item">About Me</li>
-					<li class="nav-item">Contact Me</li>
-				</ul>
-				<ul class="side-nav">
-					<li class="active nav-item">Welcome</li>
-					<li class="nav-item">My Work</li>
-					<li class="nav-item">About Me</li>
-					<li class="nav-item">Contact Me</li>
+					<li class="active nav-item"><a href="#welcome">Welcome</a></li>
+					<li class="nav-item"><a href="#my-work">My Work</a></li>
+					<li class="nav-item"><a href="#about-me">About Me</a></li>
+					<li class="nav-item"><a href="#my-process">My Process</a></li>
+					<li class="nav-item"><a href="#contact-me">Contact Me</a></li>
 				</ul>
 			</aside>
 
 
-			<section class="content-section family-varela col s12 m8">
-				<section class="padding-lr-15 flex-col welcome-section">
+			<section flex="auto" class="content-section family-varela">
+				<section id="welcome" class="padding-lr-15 flex-col welcome-section scrollspy">
 					<h3 class="section-title">Welcome</h3>
 					<figure class="welcome-figure">
 						<figcaption>I'm a typical dev! I like to spend copious amount of time in front of my computer  </figcaption>
@@ -42,7 +52,7 @@
 
 				<hr/>
 
-				<section class="padding-lr-15 flex-col work-section">
+				<section id="my-work" class="padding-lr-15 flex-col work-section scrollspy">
 					<h3 class="section-title">My Work</h3>
 					<figure>
 						<h3 class="figure-placeholder family-kumar">Wo</h3>
@@ -53,7 +63,7 @@
 
 				<hr/>
 
-				<section class="padding-lr-15 about-me-section">
+				<section id="about-me" class="padding-lr-15 about-me-section scrollspy">
 					<h3 class="section-title">About Me</h3>
 					<figure>
 						<figcaption>Here's going to be some gabbledee gook about me, my personality and all the fun things I like to do. I have hobbies, tons of them! I like to go places, many of them! I like to experience and learn from SOOOOO many cultures.</figcaption>
@@ -64,7 +74,7 @@
 
 				<hr/>
 
-				<section class="padding-lr-15 my-process section flex-col">
+				<section id="my-process" class="padding-lr-15 my-process section flex-col scrollspy">
 					<h3 class="section-title">My Process</h3>
 					<figure>
 						<figcaption></figcaption>
@@ -74,25 +84,67 @@
 
 				<hr/>
 
-				<section class="padding-lr-15 contact-me-section flex-col">
-					<h3 class="section-title">Contact Me</h3>
-					<form id="contact-form" action="/contact" method="post">
-						<label class="flex-row" for="name">Name<input class="input-field" id="name" type="text"/></label>
-						<label class="flex-row" for="email">Email<input class="input-field" id="email" type="email"/></label>
-						<label class="flex-row" for="subject">Subject
-							<select class="input-field" id="subject">
+				<section id="contact-me" class="padding-lr-15 contact-me-section flex-col scrollspy">
+					<h3 class="section-title">Contact A Typical Dev</h3>
+					<div class="row" id="contact-div" ng-controller="mailsController">
+						<div class="col s12 input-field">
+							<input id="name" type="text" ng-model="mail.name"/>
+							<label for="name">Name</label>
+						</div>
+						<div class="col s12 input-field">
+							<input id="email" type="text" ng-model="mail.email" validate/>
+							<label for="name">Email</label>
+						</div>
+						<div class="col s12 input-field">
+							<select id="subject" ng-model="mail.subject">
 								<option></option>
 								<option>Employment Inquiry</option>
 								<option>Other</option>
 							</select>
-						</label>
-						<label class="flex-row" for="message">Message<textarea class="input-field" id="message"></textarea></label>
-						<input class="pointer submit-button waves-red waves-ripple" type="submit" value="Contact Me!"/>
-					</form>
+							<label for="name">Subject</label>
+						</div>
+						<div class="col s12 input-field">
+							<textarea ng-model="mail.message" rows="8" cols="80"></textarea>
+							<label for="message">Message</label>
+						</div>
+						<button class="pointer submit-button waves-red waves-effect waves-ripple" ng-click="sendMail()">Contact Me!</button>
+					</div>
+					<noscript>
+						<form class="row" id="contact-form" action="/contact" method="post">
+							<div class="col s12 input-field">
+								<input id="name" name="name" type="text"/>
+								<label for="name">Name</label>
+							</div>
+							<div class="col s12 input-field">
+								<input id="email" name="email" type="email" validate/>
+								<label for="name">Email</label>
+							</div>
+							<div class="col s12 input-field">
+								<input id="name" type="text"/>
+								<label for="name">Name</label>
+							</div>
+							<label for="subject">Subject
+								<select class="input-field" name="subject" id="subject">
+									<option></option>
+									<option>Employment Inquiry</option>
+									<option>Other</option>
+								</select>
+							</label>
+							<label class="flex-row" for="message">Message
+								<textarea class="input-field" name="message"id="message"></textarea>
+							</label>
+							<input class="pointer submit-button waves-red waves-effect waves-ripple" type="submit" value="Contact Me!"/>
+						</form>
+					</noscript>
 				</section>
 			</section>
 		</main>
 
 		<footer></footer>
+		<script src="assets/js/app.js" charset="utf-8"></script>
+		<script src="assets/js/factories/portfolioFactory.js" charset="utf-8"></script>
+		<script src="assets/js/services/mailService.js" charset="utf-8"></script>
+		<script src="assets/js/controllers/portfoliosController.js" charset="utf-8"></script>
+		<script src="assets/js/controllers/mailsController.js" charset="utf-8"></script>
 	</body>
 </html>
