@@ -18,22 +18,23 @@
 	<body md-disable-scroll-target>
 		<header ng-include="'partials/header.html'" ng-controller="portfoliosController" class="padding-lr-15" layout="row" layout-align="center"></header>
 
-		<md-sidenav layout="column" class="md-sidenav-left" md-component-id="side-navigator">
+		<md-sidenav layout="column" class="md-sidenav-left responsive-text-container" md-component-id="side-navigator">
 			<md-toolbar class="md-theme-light">
 				<h1 class="md-toolbar-tools white">A Typical Topics!</h1>
 			</md-toolbar>
-			<div class="nav-links">
-				<p class="nav-item"><a class="md-button md-ink-ripple" href="#welcome">Welcome</a></p>
-				<p class="nav-item"><a class="md-button md-ink-ripple" href="#my-work">My Work</a></p>
-				<p class="nav-item"><a class="md-button md-ink-ripple" href="#about-me">About Me</a></p>
-				<p class="nav-item"><a class="md-button md-ink-ripple" href="#my-process">My Process</a></p>
-				<p class="nav-item"><a class="md-button md-ink-ripple" href="#contact-me">Contact Me</a></p>
+			<div class="nav-links responsive-text-container">
+
+				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#welcome">Welcome</md-button>
+				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#my-work">My Work</md-button>
+				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#about-me">About Me</md-button>
+				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#my-process">My Process</md-button>
+				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#contact-me">Contact Me</md-button>
 			</div>
 		</md-sidenav>
 
-		<main layout="row" ng-controller="portfoliosController">
-			<aside flex="20" class="family-asap">
-				<ul class="navbar">
+		<main layout="row" class="responsive-text-container" ng-controller="portfoliosController">
+			<aside flex="20" class="family-asap relative">
+				<ul class="navbar fixed fixed-centered">
 					<li class="nav-item"><a href="#welcome">Welcome</a></li>
 					<li class="nav-item"><a href="#my-work">My Work</a></li>
 					<li class="nav-item"><a href="#about-me">About Me</a></li>
@@ -47,7 +48,7 @@
 				<section layout="column" id="welcome" class="padding-lr-15 welcome-section">
 					<h3 class="section-title family-lobster">Welcome</h3>
 					<figure class="welcome-figure">
-						<figcaption>I'm a typical dev! I like to spend copious amount of time in front of my computer  </figcaption>
+						<figcaption>I'm a typical dev! I like to spend copious amount of time in front of my computer.</figcaption>
 						<h3 class="family-kumar" id="hi">Hi</h3>
 					</figure>
 				</section>
@@ -59,7 +60,7 @@
 					<h3 class="section-title family-lobster">My Work</h3>
 					<figure>
 						<h3 class="figure-placeholder family-kumar">Work</h3>
-						<figcaption>Here is the basic description for the work section. This is where I will give a brief overview of my work and then link to my codepen and github accounts</figcaption>
+						<figcaption>Here is the basic description for the work section. This is where I will give a brief overview of my work and then link to my codepen and github accounts.</figcaption>
 					</figure>
 					<div class="social-media-icons" layout="row" layout-align="space-around">
 						<md-button class="md-raised md-primary" layout layout-align="center center" href="https://www.github.com/GikuyuNderitu" target="_blank">
@@ -122,7 +123,7 @@
 
 				<section layout="column" id="contact-me" class="padding-lr-15 contact-me-section">
 					<h3 class="section-title family-lobster">Contact A Typical Dev</h3>
-					<div layout-align="space-between center" flex="50" id="contact-form-div" ng-controller="mailsController">
+					<div flex="50" id="contact-form-div" ng-controller="mailsController">
 						<div layout="row">
 							<md-input-container flex="100">
 								<label for="name">Name</label>
@@ -151,7 +152,12 @@
 								<textarea ng-model="mail.message" rows="3"></textarea>
 							</md-input-container>
 						</div>
-						<button class="pointer submit-button waves-red waves-effect waves-ripple" ng-click="sendMail()">Contact Me!</button>
+						<div class="row" layout layout-align="center center">
+							<md-button class="md-primary md-raised md-ink-ripple submit-button" ng-click="sendMail()">
+								<i class="fa fa-pencil button-content white"></i>
+								<span class="button-content white">Contact Me!</span>
+							</md-button>
+						</div>
 					</div>
 					<noscript>
 						<form class="row" id="contact-form" action="/contact" method="post">

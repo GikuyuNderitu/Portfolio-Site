@@ -150,7 +150,14 @@ header
 .padding-lr-15
 	padding: 20px 15px
 
+.responsive-text-container
+	font-size: 1.3em
 
+	& > .nav-item
+		font-size: 1em
+
+	@media only screen and (max-width: 900px)
+		font-size: 1em
 
 .increase-font
 	font-size: 2em
@@ -161,21 +168,28 @@ main
 	margin-top: 20px
 	justify-content: space-between
 
+.relative
+	position: relative
+
 aside
 	height: 100%
 
 	@media screen and (max-width: 992px)
 		display: none
 
-	&.fixed
-		position: fixed
+.fixed
+	position: fixed
 
 ul.navbar
+	top: 50%
+	transform: translateY(-50%)
+	width: 20%
 	font-size: 1.3em
 	text-align: center
 
 	& > li.nav-item
 		margin: 40px 0
+		list-style: none
 
 .nav-item > a
 	color: $primary
@@ -188,7 +202,7 @@ ul.navbar
 	font-size: 1em
 
 section.content-section
-	padding-right: 10px
+	padding: 20px 30px
 
 
 .flex-row
@@ -260,13 +274,16 @@ figure
 	border: 0
 
 .submit-button
-	background: $primary
-	color: #ddd
+	color: $off-white
 	padding: 7px 18px
 	border-radius: 4px
 	border: 0
 	text-align: center
 	align-self: center
+
+.submit-button > .submit-button
+		color: $off-white
+		font-size: 1.2em
 
 #contact-form-div
 	min-width: 60%
