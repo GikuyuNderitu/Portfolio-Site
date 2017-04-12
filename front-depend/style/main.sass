@@ -10,6 +10,10 @@ $audio: 'Audiowide'
 $lobster: 'Lobster'
 $p2: 'Press Start 2P'
 
+$picture-width: 200px
+$picture-pix: $picture-width
+
+
 // Colors
 $primary: #932010
 $blue: #06d
@@ -196,7 +200,7 @@ section.content-section
 	flex-direction: column
 
 .section-title
-	font-size: 1.5em
+	font-size: 2.3em
 	text-decoration: underline
 
 figure
@@ -219,6 +223,20 @@ figure
 
 .social-media-icons  i
 	font-size: 2.3em
+	color: white
+
+
+.circular-img
+	border-radius: 50%
+	width: $picture-pix +50
+	height: $picture-pix +20
+	margin: 20px
+	box-shadow: 2px 3px 7px #999
+	transition: box-shadow 200ms linear
+
+	&:hover
+		box-shadow: 4px 5px 7px #999
+
 
 .contact-me-section
 	align-items: center
