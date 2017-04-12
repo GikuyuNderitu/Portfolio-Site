@@ -3,6 +3,7 @@
 //Initialize express
 const express = require('express');
 const app = express()
+const PORT = process.env.PORT || 1337
 
 //DB stuff
 require('./server/utils/mongoose');
@@ -14,6 +15,6 @@ require('./server/utils/middleware')(app)
 require('./server/utils/routes')(app)
 
 
-app.listen(1337, function () {
-	console.log('Running on the 1337 port!');
+app.listen(PORT, function () {
+	console.log(`Running on the ${PORT} port!`);
 })

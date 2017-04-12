@@ -1,20 +1,38 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const Contact = mongoose.model('Contact');
+const helper = require('sendgrid').mail;
+const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+const to_email = new helper.Email("atypicaldev@gmail.com", "Gikuyu Nderitu");
+let request_mail = sg.emptyRequest({
+	method: 'POST',
+	path: '/v3/mail/send'
+});
+
 
 module.exports = {
-	index: function (req, res) {
-		console.log('Hit home route');
-		let err = false
-		// User.find({},(err, objs) =>{
-		// 	if(err) console.log(`There was some sort of error \n ${err}`);
-		// 	else {
-		// 		console.log('querried DB');
-		// 		values.users = objs
-		// 		console.log(values.users);
-		// 		return res.render('index', values)
-		// 	}
-		// })
-		if (err) return res.status(400).json({errors:'failure'})
-		return res.json({success:'success'})
+	contact: function (req, res) {
+		Contact.create(req.body, (err, contact) => {
+			if (err) {
+				console.log(err);
+				return res.status(400).res.json(err)
+			}
+
+			let from_email = new helper.Email(contact.email, contact.name);
+			let subject = contact.subject;
+			let content = new helper.Content("text/plain", contact.message);
+			let mail = new helper.Mail(from_email, subject, to_email, content);
+			request_mail.body = mail.toJSON()
+
+			sg.API(request_mail, function(error, response) {
+				if (error) {
+					console.error(error);
+					return res.status(401).json({error: error})
+				}
+				console.log(response.statusCode);
+				console.log(response.body);
+				console.log(response.headers);
+				return res.status(201).json(contact)
+			})
+		})
 	}
 }

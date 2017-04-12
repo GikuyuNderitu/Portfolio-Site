@@ -3,8 +3,17 @@ const fs = require('fs');
 const path = require('path');
 
 // Connect to mongoose, Overwrite mpromise, mongoose's deprecated promise implementation
-const DBNAME = null
-// mongoose.connect(`mongodb://localhost/${DBNAME}`)
+const DBNAME = 'atypicaldev-site'
+
+const URIstring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || `mongodb://localhost/${DBNAME}`
+mongoose.connect(URIstring, (err, res) => {
+	if (err) {
+		console.error(`ERROR connecting to: ${URIstring}`);
+	} else {
+		console.log(res);
+		console.log(`Successful connection to ${URIstring}`);
+	}
+})
 
 if(DBNAME) console.log(`Connected to ${DBNAME}`);
 else console.error(`MONGOOSE REQUIRED \nBUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUT\n CONNECT TO THE DATABASE!`);
