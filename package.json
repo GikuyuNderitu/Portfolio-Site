@@ -4,12 +4,14 @@
   "description": "This is folder contains a template to jumpstart MEAN web projects",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "Gikuyu Nderitu",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "bower": "^1.8.0",
     "express": "^4.14.1",
     "mongoose": "^4.8.1",
     "sendgrid": "^5.0.0"
