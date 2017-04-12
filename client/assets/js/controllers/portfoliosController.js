@@ -1,5 +1,6 @@
-app.controller('portfoliosController', ['$scope', 'portfolioFactory', '$mdSidenav', function($scope, portfolioFactory, $mdSidenav){
+app.controller('portfoliosController', ['$scope', 'portfolioFactory', '$mdSidenav', '$mdDialog', function($scope, portfolioFactory, $mdSidenav, $mdDialog){
 	$scope.objs = []
+	$scope.customFullscreen = false;
 
 	$scope.toggleSideNav = function () {
 		console.log('hello');
@@ -10,9 +11,29 @@ app.controller('portfoliosController', ['$scope', 'portfolioFactory', '$mdSidena
 		})
 	}
 
-	$scope.func = function (idx) {
-		portfolioFactory.delete( () => {
-
+	$scope.toggleDialog = function (ev) {
+		$mdDialog.show({
+			controller: DialogController,
+			templateUrl: 'partials/dialog.tmpl.html',
+			parent: angular.element(document.body),
+			targetEvent: ev,
+			clickOutsideToClose:true,
+			fullscreen: $scope.customFullscreen
 		})
+		.then(function(answer) {
+			$scope.status = 'You said the information was "' + answer + '".';
+		}, function() {
+			$scope.status = 'You cancelled the dialog.';
+		});
+	}
+
+	function DialogController($scope, $mdDialog) {
+		$scope.hide = function() {
+			$mdDialog.hide();
+		};
+
+		$scope.cancel = function() {
+			$mdDialog.cancel();
+		};
 	}
 }]);

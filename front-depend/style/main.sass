@@ -14,6 +14,7 @@ $p2: 'Press Start 2P'
 $primary: #932010
 $blue: #06d
 $yellow: #ca4
+$off-white: #ddd
 
 *
 	border: 0
@@ -33,21 +34,13 @@ html
 .link
 	background: $primary
 	padding: 10px 20px
-	color: #ddd
 	font-size: 1.3em
 	text-decoration: none
 	border: 2px solid #333
 	border-radius: 7px
 
-	&:hover
-		color: white
-		text-decoration: underline
-
 
 header
-	display: flex
-	justify-content: center
-	align-items: center
 	border-bottom: 2px solid $primary
 	box-shadow: 0 2px 7px #aaa
 	transition: box-shadow 200ms ease
@@ -114,11 +107,17 @@ header
 
 .fa-bars
 	font-size: 3em
-	color: white
+	color: $off-white
 
 	&:hover
 		cursor: pointer
 
+.white
+	color: lighten($off-white, 20%)
+
+.responsive-img
+	width: 100%
+	height: auto
 
 .family-noto
 	font-family: $noto
@@ -185,6 +184,7 @@ ul.navbar
 	font-size: 1em
 
 section.content-section
+	padding-right: 10px
 
 
 .flex-row
@@ -217,9 +217,8 @@ figure
 	align-self: flex-end
 	margin-right: 30px
 
-.social-media-icons
-	font-size: 2em
-	justify-content: space-around
+.social-media-icons  i
+	font-size: 2.3em
 
 .contact-me-section
 	align-items: center
@@ -250,3 +249,6 @@ figure
 	border: 0
 	text-align: center
 	align-self: center
+
+#contact-form-div
+	min-width: 60%
