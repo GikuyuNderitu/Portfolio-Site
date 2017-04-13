@@ -22,13 +22,12 @@
 			<md-toolbar class="md-theme-light">
 				<h1 class="md-toolbar-tools white">A Typical Topics!</h1>
 			</md-toolbar>
-			<div class="nav-links responsive-text-container">
-
-				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#welcome">Welcome</md-button>
-				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#my-work">My Work</md-button>
-				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#about-me">About Me</md-button>
-				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#my-process">My Process</md-button>
-				<md-button ng-click="closeSideNav()" class="md-ink-ripple nav-item" href="#contact-me">Contact Me</md-button>
+			<div class="nav-links responsive-text-container" id="side-nav-links">
+				<md-button ng-click="closeSideNav()" class="md-primary md-ink-ripple nav-item" href="#welcome">Welcome</md-button>
+				<md-button ng-click="closeSideNav()" class="md-primary md-ink-ripple nav-item" href="#my-work">My Work</md-button>
+				<md-button ng-click="closeSideNav()" class="md-primary md-ink-ripple nav-item" href="#about-me">About Me</md-button>
+				<md-button ng-click="closeSideNav()" class="md-primary md-ink-ripple nav-item" href="#my-process">My Process</md-button>
+				<!-- <md-button ng-click="closeSideNav()" class="md-primary md-ink-ripple nav-item" href="#contact-me">Contact Me</md-button> -->
 			</div>
 		</md-sidenav>
 
@@ -39,7 +38,7 @@
 					<li class="nav-item"><a href="#my-work">My Work</a></li>
 					<li class="nav-item"><a href="#about-me">About Me</a></li>
 					<li class="nav-item"><a href="#my-process">My Process</a></li>
-					<li class="nav-item"><a href="#contact-me">Contact Me</a></li>
+					<!-- <li class="nav-item"><a href="#contact-me">Contact Me</a></li> -->
 				</ul>
 			</aside>
 
@@ -47,9 +46,17 @@
 			<section flex="auto" class="content-section family-varela">
 				<section layout="column" id="welcome" class="padding-lr-15 welcome-section">
 					<h3 class="section-title family-lobster">Welcome</h3>
-					<figure class="welcome-figure">
-						<figcaption>I'm a typical dev! I like to spend copious amount of time in front of my computer.</figcaption>
-						<h3 class="family-kumar" id="hi">Hi</h3>
+					<figure layout 1class="welcome-figure">
+						<figcaption flex="66">
+							<p>
+								I'm a typical dev! I like to spend copious amount of time in front of my computer codemonkey-ing it up and
+								hours each week investing in my personal growth and understanding of the digital world in which we live.
+							</p>
+							<p>
+								Journey with me and let's explore what I have to offer!
+							</p>
+						</figcaption>
+						<h3 flex="auto" class="family-kumar" id="hi">Hi</h3>
 					</figure>
 				</section>
 
@@ -58,9 +65,16 @@
 
 				<section layout="column" id="my-work" class="padding-lr-15 work-section scrollspy">
 					<h3 class="section-title family-lobster">My Work</h3>
-					<figure>
-						<h3 class="figure-placeholder family-kumar">Work</h3>
-						<figcaption>Here is the basic description for the work section. This is where I will give a brief overview of my work and then link to my codepen and github accounts.</figcaption>
+					<figure layout>
+						<a flex="auto" href="https://www.github.com/gikuyunderitu">
+							<img class="circular-img" src="assets/img/Gikuyu_github.png" alt="Link to Atypical Dev's github account">
+						</a>
+						<figcaption flex="66">
+							<p>
+								I'm not a wordy man, so I'll cut to the chase. I love to code. I jsut do!
+								Throw a new technology in my face and I'll gobble it up! Give me a project to undertake, I'm all in! Let me, help you help you!
+							</p>
+						</figcaption>
 					</figure>
 					<div class="social-media-icons" layout="row" layout-align="space-around">
 						<md-button class="md-raised md-primary" layout layout-align="center center" href="https://www.github.com/GikuyuNderitu" target="_blank">
@@ -82,11 +96,15 @@
 				<md-divider></md-divider>
 
 
-				<section layout="column" id="about-me" class="padding-lr-15 about-me-section">
+				<section layout="column" layout-align="space-around" id="about-me" class="padding-lr-15 about-me-section">
 					<h3 class="section-title family-lobster">About Me</h3>
-					<figure layout layout-align="space-around center">
-						<figcaption>Here's going to be some gabbledee gook about me, my personality and all the fun things I like to do. I have hobbies, tons of them! I like to go places, many of them! I like to experience and learn from SOOOOO many cultures.</figcaption>
-						<img src="assets/img/my_profile.png" alt="Atypically devilishly handsome man stares into your soul." class="circular-img">
+					<figure layout>
+						<figcaption flex="66">
+							Here's going to be some gabbledee gook about me, my personality and all the fun things I like to do.
+							I have hobbies, tons of them! I like to go places, many of them!
+							I like to experience and learn from SOOOOO many cultures.
+						</figcaption>
+						<img flex="auto" src="assets/img/my_profile.png" alt="Atypically devilishly handsome man stares into your soul." class="circular-img">
 					</figure>
 					<div class="social-media-icons" layout="row" layout-align="space-around">
 						<md-button class="md-raised md-primary" layout layout-align="center center" href="https://www.facebook.com/D2-184687238314837" target="_blank">
@@ -118,7 +136,7 @@
 					</figure>
 				</section>
 
-				<hr/>
+				<!-- <hr/>
 				<md-divider></md-divider>
 
 				<section layout="column" id="contact-me" class="padding-lr-15 contact-me-section">
@@ -186,7 +204,7 @@
 							<input class="pointer submit-button waves-red waves-effect waves-ripple" type="submit" value="Contact Me!"/>
 						</form>
 					</noscript>
-				</section>
+				</section> -->
 			</section>
 		</main>
 
