@@ -6,10 +6,9 @@ app.controller('portfoliosController', ['$scope', 'portfolioFactory', '$mdSidena
 		console.log('hello');
 		$mdSidenav('side-navigator')
 		.toggle()
-		.then(() => {
-			console.log('toggle complete');
-		})
 	}
+
+	$scope.closeSideNav = () => $mdSidenav('side-navigator').close().then(()=> console.log('closed sidenav'))
 
 	$scope.toggleDialog = function (ev) {
 		$mdDialog.show({
