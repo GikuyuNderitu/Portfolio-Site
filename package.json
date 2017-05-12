@@ -4,7 +4,8 @@
   "description": "This is folder contains a template to jumpstart MEAN web projects",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node node_modules/.bin/webpack -w"
   },
   "author": "Gikuyu Nderitu",
   "license": "ISC",
@@ -15,6 +16,12 @@
     "sendgrid": "^5.0.0"
   },
   "devDependencies": {
-    "node-sass": "^4.5.0"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.5",
+    "webpack": "^2.5.1"
   }
 }
